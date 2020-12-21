@@ -14,9 +14,9 @@ In the Natural Design System, artboard names must represent their content. All a
 
 :green_circle: `_products - Search results`
 
-:no_entry_sign: `products`
+:no_entry_sign: `products` *(missing the underscore)*
 
-:no_entry_sign: `_product catalogue`
+:no_entry_sign: `_product catalogue` *(section name has a white space)*
 
 ## Configuration
 
