@@ -1,21 +1,22 @@
-import { AssistantPackage, RuleDefinition } from '@sketch-hq/sketch-assistant-types'
+import { AssistantPackage } from '@sketch-hq/sketch-assistant-types'
 
-const helloWorld: RuleDefinition = {
-  rule: async (context) => {
-    context.utils.report('Hello world')
-  },
-  name: 'sketch-assistant-template/hello-world',
-  title: 'Hello World',
-  description: 'Reports a hello world message',
-}
+import { artboardNames } from './rules/artboard-names'
+import { localStyles } from './rules/local-styles'
+import { duplicateArtboards } from './rules/duplicate-artboards'
 
 const assistant: AssistantPackage = async () => {
   return {
-    name: 'sketch-assistant-template',
-    rules: [helloWorld],
+    name: 'nds-sketch-layout-assistant',
+    rules: [
+      artboardNames,
+      localStyles,
+      duplicateArtboards,
+    ],
     config: {
       rules: {
-        'sketch-assistant-template/hello-world': { active: true },
+        'nds-sketch-layout-assistant/artboard-names': { active: true },
+        'nds-sketch-layout-assistant/local-styles': { active: true },
+        'nds-sketch-layout-assistant/duplicate-artboards': { active: true },
       },
     },
   }

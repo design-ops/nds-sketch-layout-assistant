@@ -1,16 +1,9 @@
-# sketch-assistant-template
+# NDS Sketch layout assistant
 
-> 💁‍♀️ This repository contains a starter project for developing a new Assistant.
+This Sketch Assistant is to be used when designing layout files for the Natural Design System. The Assistant performs the following checks on your theme file:
 
-👉
-[Click here to generate a new project using this repository as a template](https://github.com/sketch-hq/sketch-assistant-template/generate)
+## Rules
 
-## Getting started
-
-For in-depth guides head over to the [Sketch Developer](https://developer.sketch.com/assistants/)
-site.
-
-- [Getting started](https://developer.sketch.com/assistants/getting-started)
-- [Write a rule](https://developer.sketch.com/assistants/write-a-rule)
-- [Publishing](https://developer.sketch.com/assistants/publish)
-- And more!
+* [Artboard names](./src/rules/artboard-names)
+* [Duplicate artboards](./src/rules/duplicate-artboards)
+* [Local styles](./src/rules/local-styles)
