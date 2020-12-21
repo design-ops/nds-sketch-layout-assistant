@@ -3,43 +3,24 @@ import { testRuleInAssistant } from '@sketch-hq/sketch-assistant-utils'
 
 import Assistant from '..'
 
-test('Duplicate components', async () => {
+test('Artboard names', async () => {
   const { violations } = await testRuleInAssistant(
-    resolve(__dirname, './duplicate-components.sketch'),
+    resolve(__dirname, './artboard-names.sketch'),
     Assistant,
-    "nds-sketch-components-assistant/duplicate-components"
+    "nds-sketch-layout-assistant/artboard-names"
   )
-  expect(violations[0].message).toBe("• '_navbar' has a duplicate component")
-  expect(violations).toHaveLength(1)
+  expect(violations[0].message).toBe("'dashboard v3' name is not properly formatted")
+  expect(violations[1].message).toBe("'dashboard' name is not properly formatted")
+  expect(violations).toHaveLength(2)
 })
 
-test('Component names', async () => {
+test('Duplicate artboards', async () => {
   const { violations } = await testRuleInAssistant(
-    resolve(__dirname, './component-names.sketch'),
+    resolve(__dirname, './duplicate-artboards.sketch'),
     Assistant,
-    "nds-sketch-components-assistant/component-names"
+    "nds-sketch-layout-assistant/duplicate-artboards"
   )
-  expect(violations[0].message).toBe("'navbar' component name must start with '_'")
-  expect(violations).toHaveLength(1)
-})
-
-test('Shape layer names', async () => {
-  const { violations } = await testRuleInAssistant(
-    resolve(__dirname, './shape-layer-names.sketch'),
-    Assistant,
-    "nds-sketch-components-assistant/shape-layer-names"
-  )
-  expect(violations[0].message).toBe("'Rectangle' does not match the shared style name 'background'")
-  expect(violations).toHaveLength(1)
-})
-
-test('Text layer names', async () => {
-  const { violations } = await testRuleInAssistant(
-    resolve(__dirname, './text-layer-names.sketch'),
-    Assistant,
-    "nds-sketch-components-assistant/text-layer-names"
-  )
-  expect(violations[0].message).toBe("'Type something' does not match the shared style name 'title'")
+  expect(violations[0].message).toBe("'_dashboard' has a duplicate artboard")
   expect(violations).toHaveLength(1)
 })
 
@@ -47,7 +28,7 @@ test('Local styles', async () => {
   const { violations } = await testRuleInAssistant(
     resolve(__dirname, './local-styles.sketch'),
     Assistant,
-    "nds-sketch-components-assistant/local-styles"
+    "nds-sketch-layout-assistant/local-styles"
   )
   expect(violations[0].message).toBe("'background' is a local style")
   expect(violations[1].message).toBe("'title' is a local style")
