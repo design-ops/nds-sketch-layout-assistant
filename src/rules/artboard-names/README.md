@@ -8,11 +8,15 @@ In the Natural Design System, artboard names must represent their content. All a
 
 ### Example
 
-`_dashboard-v1`
+:green_circle: `_dashboard-v1`
 
-`_dashboard-v1 - User data view`
+:green_circle: `_dashboard-v1 - User data view`
 
-`_products - Search results`
+:green_circle: `_products - Search results`
+
+:no_entry_sign: `products`
+
+:no_entry_sign: `_product catalogue`
 
 ## Configuration
 
