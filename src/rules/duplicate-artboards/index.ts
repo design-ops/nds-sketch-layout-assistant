@@ -1,4 +1,4 @@
-import { RuleDefinition } from '@sketch-hq/sketch-assistant-types'
+import { RuleDefinition, SketchFileObject } from '@sketch-hq/sketch-assistant-types'
 
 export const duplicateArtboards: RuleDefinition = {
   rule: async (context) => {
@@ -6,6 +6,7 @@ export const duplicateArtboards: RuleDefinition = {
     interface Duplicate {
       name: string
       number: number
+      object: SketchFileObject
     }
 
     var duplicates: Array<Duplicate> = [];
@@ -16,12 +17,12 @@ export const duplicateArtboards: RuleDefinition = {
       if (existingElement != null)
         existingElement.number++;
       else
-        duplicates.push({ name: artboard.name, number: 1 });
+        duplicates.push({ name: artboard.name, number: 1, object:artboard });
     }
 
     totalDuplicates = (duplicates.filter((element) => element.number > 1));
 
-    totalDuplicates.forEach(element => context.utils.report('• \'' + element.name + '\' has a duplicate artboard'));
+    totalDuplicates.forEach(element => context.utils.report('\'' + element.name + '\' has a duplicate artboard', element.object));
 
   },
   name: 'nds-sketch-layout-assistant/duplicate-artboards',
