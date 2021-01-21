@@ -4,7 +4,7 @@ import FileFormat from '@sketch-hq/sketch-file-format-ts'
 export const shapeLayerNames: RuleDefinition = {
   rule: async (context) => {
 
-    const IGNORE_CLASSES = ['artboard', 'page', 'symbolMaster', 'text']
+    const IGNORE_CLASSES = new Set(['artboard', 'page', 'symbolMaster', 'text'])
     type StyleId = string
 
     const { utils } = context
@@ -18,7 +18,7 @@ export const shapeLayerNames: RuleDefinition = {
 
     for (const layer of utils.objects.anyLayer) {
 
-      if (IGNORE_CLASSES.includes(layer._class)) continue // Ignore certain classes
+      if (IGNORE_CLASSES.has(layer._class)) continue // Ignore certain classes
       if (layer._class === 'group' && !layer.style?.shadows?.length) continue // Ignore groups with default styles
       if (typeof layer.sharedStyleID !== 'string') continue // Ignore if no shared style id
       const sharedStyle = sharedStyles.get(layer.sharedStyleID)
