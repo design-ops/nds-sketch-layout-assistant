@@ -1,21 +1,31 @@
-import { AssistantPackage, RuleDefinition } from '@sketch-hq/sketch-assistant-types'
+import { AssistantPackage } from '@sketch-hq/sketch-assistant-types'
 
-const helloWorld: RuleDefinition = {
-  rule: async (context) => {
-    context.utils.report('Hello world')
-  },
-  name: 'sketch-assistant-template/hello-world',
-  title: 'Hello World',
-  description: 'Reports a hello world message',
-}
+import { artboardNames } from './rules/artboard-names'
+import { localStyles } from './rules/local-styles'
+import { duplicateArtboards } from './rules/duplicate-artboards'
+import { symbolLayerNames } from './rules/symbol-layer-names'
+import { shapeLayerNames } from './rules/shape-layer-names'
+import { textLayerNames } from './rules/text-layer-names'
 
 const assistant: AssistantPackage = async () => {
   return {
-    name: 'sketch-assistant-template',
-    rules: [helloWorld],
+    name: 'nds-sketch-layout-assistant',
+    rules: [
+      artboardNames,
+      localStyles,
+      duplicateArtboards,
+      symbolLayerNames,
+      shapeLayerNames,
+      textLayerNames,
+    ],
     config: {
       rules: {
-        'sketch-assistant-template/hello-world': { active: true },
+        'nds-sketch-layout-assistant/artboard-names': { active: true },
+        'nds-sketch-layout-assistant/local-styles': { active: true },
+        'nds-sketch-layout-assistant/duplicate-artboards': { active: true },
+        'nds-sketch-layout-assistant/symbol-layer-names': { active: true },
+        'nds-sketch-layout-assistant/shape-layer-names': { active: true },
+        'nds-sketch-layout-assistant/text-layer-names': { active: true },
       },
     },
   }
