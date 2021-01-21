@@ -15,7 +15,7 @@ export const symbolLayerNames: RuleDefinition = {
       const symbolName = sharedSymbols.get(layer.symbolID)
 
       if (symbolName != undefined && layer.name == symbolName) continue
-      context.utils.report(layer.name + " - " + symbolName, layer)
+      context.utils.report("\'"+layer.name+"\' does not match the symbol master name \'"+symbolName+"\'", layer)
 
     }
 
