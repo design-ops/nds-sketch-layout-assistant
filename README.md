@@ -13,6 +13,8 @@ This Sketch Assistant is to be used when designing layout files for the Natural 
 
 ## Installation
 
-👉 To install automatically, **copy and paste** the following link into a new browser tab:
+:gem: [Click here to install automatically](http://j76.me/Rdmx)
+
+:point_right: or **copy & paste** the following link into a new browser:
 
 `sketch://add-assistant?url=https://github.com/design-ops/nds-sketch-layout-assistant/releases/download/v1.0.0/nds-sketch-layout-assistant-1.0.0.tgz`
