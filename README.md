@@ -17,4 +17,4 @@ This Sketch Assistant is to be used when designing layout files for the Natural 
 
 :point_right: or **copy & paste** the following link into a new browser:
 
-`sketch://add-assistant?url=https://github.com/design-ops/nds-sketch-layout-assistant/releases/download/v1.0.0/nds-sketch-layout-assistant-1.0.0.tgz`
+`sketch://add-assistant?url=https://github.com/design-ops/nds-sketch-layout-assistant/releases/download/v1.0.1/nds-sketch-layout-assistant-1.0.1.tgz`
